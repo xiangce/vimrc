@@ -31,7 +31,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'vim-scripts/CmdlineComplete'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/vim-easy-align'
@@ -102,10 +102,7 @@ set nowrap
 set number
 set relativenumber
 set ruler
-set undofile
 set pastetoggle=<F3>
-
-setlocal spell spelllang=en_us
 
 set cursorline
 set cursorcolumn
@@ -144,9 +141,16 @@ hi Normal guibg=NONE ctermbg=NONE
 set term=screen-256color
 " }
 
+" SpellBad {
+setlocal spell spelllang=en_us
+hi clear SpellBad
+hi SpellBad cterm=underline
+" }
+"
 " Undo {
 nnoremap <F5> :GundoToggle<CR>
-set undodir=~/liuxc/.vim/undo/
+set undodir=/Users/liuxc/.vim/undo/
+set undofile
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
@@ -154,10 +158,13 @@ let g:gundo_right = 1
 
 " airline {
 "let g:tmuxline_theme = 'airline_insert'
+set encoding=utf-8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'default'
+let g:Powerline_symbols='unicode'
+"set guifont=DroidSansMono\ Nerd\ Font
 " }
 
 " indent_guides {
@@ -269,16 +276,16 @@ nmap ga <Plug>(EasyAlign)
 
 "Easy Motion {
 " <Leader>f{char} to move to {char}
-" map  <Leader>f <Plug>(easymotion-bd-f)
-" nmap <Leader>f <Plug>(easymotion-overwin-f)
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
 " " s{char}{char} to move to {char}{char}
-" nmap <Leader>s <Plug>(easymotion-overwin-f2)
+ nmap <Leader>s <Plug>(easymotion-overwin-f2)
 "" Move to line
 map <Leader><Leader>g <Plug>(easymotion-bd-jk)
 nmap <Leader><Leader>g <Plug>(easymotion-overwin-line)
 " "" Move to word
-" map  <Leader>w <Plug>(easymotion-bd-w)
-" nmap <Leader>w <Plug>(easymotion-overwin-w
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w
 " }
 
 " Rainbow Parentheses
