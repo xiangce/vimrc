@@ -6,12 +6,15 @@
     st = status
     pl = pull
     ls = log --stat --graph
-    mylog = ls --author=xiangce --since=1.week
-    last = ls -1 HEAD
-    hist = --no-pager log -10 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
-    allhist = log -16 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
+    lh = --no-pager ls -2 HEAD
+    lm = ls --author=xiangce --since=1.week
+    h = --no-pager log -10 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
+    hm = --no-pager log -10 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short master
+    hall = log -16 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
+    rbm = rebase master
 [user]
     name = Xiangce Liu
     email = xiangceliu@redhat.com
 [core]
     editor = vim
+    excludesfile = /Users/liuxc/.gitignore_global

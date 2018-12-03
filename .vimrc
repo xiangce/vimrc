@@ -118,6 +118,9 @@ set noswapfile
 set hidden
 set complete=k,.,w,b,u,t,i
 
+" Allow saving of files when I forgot to start vim with sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 let mapleader=','
 " }
 

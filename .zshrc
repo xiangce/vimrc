@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/opt/sqlite/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/liuxc/.oh-my-zsh"
@@ -18,7 +19,7 @@ export ZSH="/Users/liuxc/.oh-my-zsh"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -28,7 +29,7 @@ export ZSH="/Users/liuxc/.oh-my-zsh"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=7
+export UPDATE_ZSH_DAYS=2
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -58,6 +59,16 @@ export UPDATE_ZSH_DAYS=7
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# For Plugins
+export ZSH_TMUX_AUTOSTART="true"
+export ZSH_TMUX_AUTOQUIT="false"
+export ALIEN_THEME=blue
+export ALIEN_DATE_TIME_FORMAT="%H:%M:%S"
+export USE_NERD_FONT=1
+export PLIB_GIT_TRACKED_COLOR=green
+export PLIB_GIT_UNTRACKED_COLOR=red
+
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -66,19 +77,22 @@ plugins=(
   git
   github
   alien
+  tmux
   zsh-completions
   zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
-# source $ZSH/plugins/alien/alien.zsh
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=28'
+#ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -93,13 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-export ALIEN_THEME=blue
-export ALIEN_DATE_TIME_FORMAT="%H:%M:%S"
-export USE_NERD_FONT=1
-export PLIB_GIT_TRACKED_COLOR=green
-export PLIB_GIT_UNTRACKED_COLOR=red
-export ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -110,17 +117,22 @@ export ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias gohadoop='ssh xialiu@hadoop-test-1.gsslab.rdu2.redhat.com'
-alias srcact='source .python2/bin/activate'
+alias s2='source .python2/bin/activate'
+alias s3='source .python3/bin/activate'
+alias s='s3'
 alias free='free -h'
 alias vi='vim'
 alias rm.pyc='find ./ -name "*.pyc" -delete'
-alias git-db='git branch | egrep -v "\*| master" | xargs git branch -D'
+alias rm.br='git branch | egrep -v "\*| master" | xargs git branch -D'
 
 # Servers
-alias login_rhel_client_test='ssh root@10.72.32.215'
-alias login_rhel7_tomcat_apache='ssh root@10.72.32.219'
-alias login_rhel7_sat6='ssh root@10.72.32.205'
-alias login_rhel6_sat6='ssh root@10.72.32.209'
-alias login_rhel6_hana='ssh root@10.66.208.130'
-alias login_rhel7_hana='ssh root@10.66.208.132'
-alias login_rhel7_ent_hana='ssh root@10.66.208.191'
+alias login_client_test_rhel='ssh root@10.72.32.215'
+alias login_tomcat_apache_rhel7='ssh root@10.72.32.219'
+alias login_sat6_rhel7='ssh root@10.72.32.205'
+alias login_sat6_rhel6='ssh root@10.72.32.209'
+alias login_hana_rhel6='ssh root@10.66.208.130'
+alias login_hana_rhel7='ssh root@10.66.208.132'
+alias login_hana2_rhel7='ssh root@10.72.37.54'
+alias login_nw_rhel7='ssh root@10.72.37.150'
+
+autoload -U compinit && compinit
