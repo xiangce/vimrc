@@ -1,15 +1,16 @@
 [alias]
-    br = --no-pager branch
     co = checkout
     ci = commit
     cp = cherry-pick -x
     st = status
     pl = pull
+    st = status
     ls = log --stat --graph
-    lh = --no-pager ls -2 HEAD
+    br = "!git --no-pager branch"
+    lh = "!git --no-pager ls -2 HEAD"
     lm = ls --author=xiangce --since=1.week
-    h = --no-pager log -10 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
-    hm = --no-pager log -10 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short master
+    h = "!git --no-pager log -10 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short"
+    hm = "!git --no-pager log -10 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short master"
     hall = log -16 --pretty=format:\"%H %ad | %s%d [%an]\" --graph --date=short
     rbm = rebase master
 [user]

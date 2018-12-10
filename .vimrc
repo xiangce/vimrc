@@ -124,6 +124,11 @@ cmap w!! w !sudo tee > /dev/null %
 let mapleader=','
 " }
 
+" Diff Options {
+set diffopt+=algorithm:patience
+set diffopt+=indent-heuristic
+" }
+
 " Fold {
 set foldmethod=indent
 set foldnestmax=999
