@@ -4,6 +4,7 @@
     cp = cherry-pick -x
     st = status
     pl = pull
+    plr = pull -r
     st = status
     ls = log --stat --graph
     br = "!git --no-pager branch"

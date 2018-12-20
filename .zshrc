@@ -135,8 +135,8 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gohadoop='ssh xialiu@hadoop-test-1.gsslab.rdu2.redhat.com'
-alias s2='source .python2/bin/activate'
-alias s3='source .python3/bin/activate'
+alias s2='deactivate 2> /dev/null; source .python2/bin/activate'
+alias s3='deactivate 2> /dev/null; source .python3/bin/activate'
 alias s='s3'
 alias free='free -h'
 alias vi='vim'
