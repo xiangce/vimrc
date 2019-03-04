@@ -332,6 +332,11 @@ if has("cscope")
     nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     map <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
+
+" GNU Global
+let GtagsCscope_Auto_Load = 1
+let GtagsCscope_Auto_Map = 1
+let GtagsCscope_Quiet = 1
 " }
 
 " gitgutter {

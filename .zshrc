@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/Users/liuxc/Library/Python/2.7/bin:$PATH
+export PATH=/Users/liuxc/Library/Python/3.7/bin:$PATH
 export LC_ALL=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
@@ -80,6 +82,7 @@ plugins=(
   tmux
   zsh-completions
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -141,17 +144,18 @@ alias s='s3'
 alias free='free -h'
 alias vi='vim'
 alias rm.pyc='find ./ -name "*.pyc" -delete'
+alias rm.brf='git branch | egrep -v "\*| master" | xargs git branch -d'
 alias rm.br='git branch | egrep -v "\*| master" | xargs git branch -D'
 alias git=hub
 
 # Servers
-alias login_client_test_rhel='ssh root@10.72.32.215'
+alias login_insights_dev_rhel7='ssh root@10.72.32.215'
 alias login_tomcat_apache_rhel7='ssh root@10.72.32.219'
 alias login_sat6_rhel7='ssh root@10.72.32.205'
 alias login_sat6_rhel6='ssh root@10.72.32.209'
 alias login_hana_rhel6='ssh root@10.66.208.130'
 alias login_hana_rhel7='ssh root@10.66.208.132'
 alias login_hana2_rhel7='ssh root@10.72.37.54'
-alias login_nw_rhel7='ssh root@10.72.37.150'
+alias login_sap_rhemv='ssh root@10.72.37.39'
 
 autoload -U compinit && compinit

@@ -6,6 +6,7 @@
     pl = pull
     plr = pull -r
     st = status
+    cb = co -b
     ls = log --stat --graph
     br = "!git --no-pager branch"
     lh = "!git --no-pager ls -2 HEAD"
