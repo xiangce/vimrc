@@ -65,7 +65,20 @@ export UPDATE_ZSH_DAYS=2
 export ZSH_TMUX_AUTOSTART="true"
 export ZSH_TMUX_AUTOQUIT="false"
 export ALIEN_THEME=blue
-export ALIEN_DATE_TIME_FORMAT="%H:%M:%S"
+export ALIEN_SECTIONS_LEFT=(
+  exit
+  time
+  user
+  path
+  vcs_branch:async
+  vcs_status:async
+  vcs_dirty:async
+  newline
+  ssh
+  venv
+  prompt
+)
+export ALIEN_SECTION_TIME_FORMAT=%H:%M:%S
 export USE_NERD_FONT=1
 export PLIB_GIT_TRACKED_COLOR=green
 export PLIB_GIT_UNTRACKED_COLOR=red
@@ -152,7 +165,10 @@ alias git=hub
 alias login_insights_dev_rhel7='ssh root@10.72.32.215'
 alias login_tomcat_apache_rhel7='ssh root@10.72.32.219'
 alias login_sat6_rhel7='ssh root@10.72.32.205'
+alias login_rhel8_beta='ssh root@10.72.37.245'
 alias login_sat6_rhel6='ssh root@10.72.32.209'
+alias login_sat6_rhel8='ssh root@10.72.37.146'
+alias login_sat6_rhel8_2='ssh root@10.72.32.193'
 alias login_hana_rhel6='ssh root@10.66.208.130'
 alias login_hana_rhel7='ssh root@10.66.208.132'
 alias login_hana2_rhel7='ssh root@10.72.37.54'

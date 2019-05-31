@@ -9,14 +9,10 @@ call vundle#begin('$HOME/.vim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 
-" Programming
-" git
+" git {
 Plugin 'tpope/vim-fugitive'
-"Plugin 'airblade/vim-gitgutter'
-
-" Comment with gcc
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-sensible'
+" Plugin 'airblade/vim-gitgutter'
+" }
 
 " Automatic closing
 Plugin 'Raimondi/delimitMate'
@@ -27,11 +23,14 @@ Plugin 'honza/vim-snippets'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/rainbow_parentheses.vim'
 
-" Utility
-Plugin 'vim-scripts/CmdlineComplete'
+" Utility {
+" {
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" }
+Plugin 'chrisbra/vim-diff-enhanced'
+Plugin 'vim-scripts/CmdlineComplete'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/vim-easy-align'
@@ -41,25 +40,25 @@ Plugin 'sjl/gundo.vim'
 Plugin 'VisIncr'
 Plugin 'alfredodeza/pytest.vim'
 Plugin 'rking/ag.vim'
+Plugin 'nvie/vim-flake8'
+" }
+
+" Tmux {
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'nvie/vim-flake8'
+" }
 
 " Format
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-"Plugin 'Mark--Karkat'
-"Plugin 'FavEx'
 "Plugin 'thinca/vim-visualstar'
 "Plugin 'tpope/vim-unimpaired'
 "Plugin 'itchyny/calendar.vim'
-"Plugin 'DrawIt'
-
-" Color Theme
 "Plugin 'powerline/fonts'
 "Plugin 'pdf/vim-railscasts'
 "Plugin 'jpo/vim-railscasts-theme'
-"Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
@@ -67,7 +66,7 @@ call vundle#end()
 syntax enable
 filetype plugin indent on
 
-" Basic Setting {
+" Last Position {
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -93,9 +92,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set smarttab
-set expandtab
-set tabpagemax=20
 set shiftround
+set expandtab
 set noshowmode
 set mouse-=a
 set nowrap
@@ -103,6 +101,7 @@ set number
 set relativenumber
 set ruler
 set pastetoggle=<F3>
+set tabpagemax=20
 
 set cursorline
 set cursorcolumn
