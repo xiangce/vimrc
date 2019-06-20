@@ -9,38 +9,50 @@ call vundle#begin('$HOME/.vim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 
+" Automatic {
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/CmdlineComplete'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'sirver/ultisnips'
+" Plugin 'honza/vim-snippets'
+" }
+
+" Looking {
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+" Plugin 'itchyny/lightline.vim'
+" }
+
+" Utility {
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-repeat'
+Plugin 'chrisbra/vim-diff-enhanced'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-eunuch'
+Plugin 'sjl/gundo.vim'
+" Plugin 'VisIncr'
+" }
+
+" Programming {
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-commentary'
+" Plugin 'scrooloose/nerdcommenter'
+" }
+
 " git {
 Plugin 'tpope/vim-fugitive'
 " Plugin 'airblade/vim-gitgutter'
-" }
-
-" Automatic closing
-Plugin 'Raimondi/delimitMate'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'sirver/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kien/rainbow_parentheses.vim'
-
-" Utility {
-" {
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-" }
-Plugin 'chrisbra/vim-diff-enhanced'
-Plugin 'vim-scripts/CmdlineComplete'
-"Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'sjl/gundo.vim'
-Plugin 'VisIncr'
-Plugin 'alfredodeza/pytest.vim'
-Plugin 'rking/ag.vim'
-Plugin 'nvie/vim-flake8'
 " }
 
 " Tmux {
@@ -48,17 +60,6 @@ Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'edkolev/tmuxline.vim'
 " }
-
-" Format
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-"Plugin 'thinca/vim-visualstar'
-"Plugin 'tpope/vim-unimpaired'
-"Plugin 'itchyny/calendar.vim'
-"Plugin 'powerline/fonts'
-"Plugin 'pdf/vim-railscasts'
-"Plugin 'jpo/vim-railscasts-theme'
 
 call vundle#end()
 
@@ -137,8 +138,6 @@ let python_highlight_all = 1
 " }
 
 " Color {
-"colorscheme default
-"colorscheme desert256
 set background=light
 colorscheme evening
 hi ColorColumn cterm=None ctermbg=darkred guibg=black
@@ -146,6 +145,13 @@ hi CursorColumn cterm=None ctermbg=black guibg=black
 hi CursorLine cterm=UnderLine ctermbg=NONE guibg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 set term=screen-256color
+
+hi LeadingSpace ctermbg=darkblue guibg=Black
+match LeadingSpace /^\s\+/
+"hi EndingExcess ctermbg=red guibg=Black
+"match EndingExcess /\%81v.*/
+hi EndingBlank ctermbg=red guibg=Black
+match EndingBlank /\s\+$/
 " }
 
 " SpellBad {
@@ -156,7 +162,7 @@ hi SpellBad cterm=underline
 "
 " Undo {
 nnoremap <F5> :GundoToggle<CR>
-set undodir=/Users/liuxc/.vim/undo/
+set undodir="~/.vim/undo/"
 set undofile
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
@@ -175,10 +181,9 @@ let g:Powerline_symbols='unicode'
 " }
 
 " indent_guides {
+let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=gray
 hi IndentGuidesEven ctermbg=darkgray
@@ -240,13 +245,6 @@ let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 " }
 
-hi LeadingSpace ctermbg=darkblue guibg=Black
-match LeadingSpace /^\s\+/
-"hi EndingExcess ctermbg=red guibg=Black
-"match EndingExcess /\%81v.*/
-hi EndingBlank ctermbg=red guibg=Black
-match EndingBlank /\s\+$/
-
 " CtrlP {
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_prompt_mappings = { 'PrtCurLeft()': ['<left>', '<c-^>'] }
@@ -267,7 +265,7 @@ let g:ctrlp_custom_ignore = {
 " }
 
 " NerdTree {
-map <F2> :NERDTreeToggle<CR>
+map <c-a> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeDirArrowExpandable = '▸'
