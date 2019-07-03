@@ -91,6 +91,7 @@ export PLIB_GIT_UNTRACKED_COLOR=red
 plugins=(
   git
   github
+  gitfast
   alien
   tmux
   zsh-completions
